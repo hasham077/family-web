@@ -19,32 +19,9 @@
 </head>
 <body>
     <div class="message">
-        <p>If you're not redirected, <a id="link" href="#">click here</a> to open the app or go to the Play Store.</p>
+        <p>If you're not redirected, <a>click here</a> to open the app or go to the Play Store.</p>
     </div>
 
-    <script>
-        const openApp = () => {
-            // Define your app's custom URL scheme or App Link URL
-            const appUrl = 'familycircle.com';  // Replace with your app's URL scheme
-            const playStoreUrl = 'https://play.google.com/store/apps/details?id=com.geniai.family.friends.tracker.location';  // Replace with your Play Store URL
 
-            // Try to open the app
-            window.location.href = appUrl;
-
-            // If the app is not installed, wait for a short delay and then redirect to Play Store
-            setTimeout(() => {
-                window.location.href = playStoreUrl;
-            }, 1000); // 1-second delay
-        };
-
-        // Run the openApp function on page load
-        openApp();
-
-        // Handle the "click here" fallback link
-        document.getElementById('link').addEventListener('click', (event) => {
-            event.preventDefault();
-            openApp();
-        });
-    </script>
 </body>
 </html>
