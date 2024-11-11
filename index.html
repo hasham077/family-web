@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -28,6 +28,52 @@
         
         window.location.href = playStoreURL;
       
+      }
+    }, 1000); // Delay of 1 second (adjust if needed)
+  </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Group in App</title>
+</head>
+<body>
+  <h2>Join Our Group</h2>
+  <p>If you have the app installed, it will open automatically. Otherwise, you will be redirected to download the app.</p>
+
+  <script type="text/javascript">
+    // Function to get query parameters from the URL
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    // Get the circle ID from the URL parameter
+    const circleId = getQueryParam("circleid");
+
+    // Construct the app scheme URL based on whether the circle ID is provided
+    const appSchemeURL = circleId 
+      ? `family-circle://join?circleid=${circleId}` 
+      : "family-circle://";
+
+    const playStoreURL = "https://play.google.com/store/apps/details?id=com.example.yourapp";
+    const appStoreURL = "https://apps.apple.com/app/id123456789";
+
+    // Attempt to open the app with or without the circle ID
+    window.location.href = appSchemeURL;
+
+    // Redirect to the app store after a short delay if the app is not installed
+    setTimeout(() => {
+      // Detect the platform and redirect to the appropriate store
+      if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+        window.location.href = appStoreURL;
+      } else {
+        window.location.href = playStoreURL;
       }
     }, 1000); // Delay of 1 second (adjust if needed)
   </script>
