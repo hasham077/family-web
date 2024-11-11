@@ -22,10 +22,12 @@
     // Redirect to the Play Store (or App Store) after a delay if the app isn’t installed
     setTimeout(() => {
       // Detect the platform and redirect to the appropriate store
-      if (/android/i.test(navigator.userAgent)) {
-        window.location.href = playStoreURL;
-      } else if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+       if (/iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
         window.location.href = appStoreURL;
+      } else {
+        
+        window.location.href = playStoreURL;
+      
       }
     }, 1000); // Delay of 1 second (adjust if needed)
   </script>
